@@ -1,0 +1,53 @@
+name: k6 test
+
+on:
+  workflow_dispatch:
+    inputs:
+        username:
+          description: 'username'
+          default: ''
+          required: false
+          type: string
+        email: 
+          description: 'email'
+          default: ''
+          required: true
+          type: string
+        boolean:
+          type: boolean
+          description: True or False
+        choice:
+          type: choice
+          description: Make a choice
+          options:
+          - foo
+          - bar
+          - baz
+
+jobs:
+  k6:
+    name: k6
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Script
+      run: |
+        mkdir ~/.kube
+        touch $HOME/.kube/config
+        echo "Hello World" > $HOME/.kube/config
+        cat $HOME/.kube/config
+        data=$(cat $HOME/.kube/config | openssl enc -e -base64)
+        
+        echo "kubeconfig_data=${data}" >> $GITHUB_ENV
+
+    - name: Create CRD
+      uses: ymktmk/operate-k6-crd@main
+      with:
+        method: create
+        template: ./example/k6.yaml
