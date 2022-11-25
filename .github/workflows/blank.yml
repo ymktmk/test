@@ -50,4 +50,7 @@ jobs:
       uses: ymktmk/operate-k6-crd@main
       with:
         method: create
+        vus: 1
+        duration: 100
+        parallelism: 1
         template: ./example/k6.yaml
