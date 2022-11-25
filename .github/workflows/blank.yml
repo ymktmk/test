@@ -11,7 +11,7 @@ on:
         email: 
           description: 'email'
           default: ''
-          required: true
+          required: false
           type: string
         boolean:
           type: boolean
@@ -54,3 +54,9 @@ jobs:
         duration: 100
         parallelism: 1
         template: ./example/k6.yaml
+        
+    - name: Ls
+      run: |
+        pwd
+        ls -la
+        
