@@ -10,11 +10,11 @@ on:
           - auth
           - connect
           - external
-        method:
-          description: 'method'
-          default: ''
-          required: true
-          type: string
+#         method:
+#           description: 'method'
+#           default: ''
+#           required: true
+#           type: string
         vus: 
           description: 'vus'
           default: ''
@@ -38,13 +38,13 @@ on:
         js: 
           description: 'js file'
           default: ''
-          required: false
-          type: string  
-        template:
-          description: 'template'
-          default: ''
           required: true
-          type: string
+          type: string  
+#         template:
+#           description: 'template'
+#           default: ''
+#           required: true
+#           type: string
           
 jobs:
   k6:
