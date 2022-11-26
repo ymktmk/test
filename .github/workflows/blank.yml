@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
     inputs:
         api:
-          type: api
+          type: choice
           description: make choice api
           options:
-          - auth
-          - connect
-          - external
+          - auth.js
+          - connect.js
+          - external.js
 #         method:
 #           description: 'method'
 #           default: ''
@@ -35,11 +35,6 @@ on:
           default: ''
           required: false
           type: string
-        js: 
-          description: 'js file'
-          default: ''
-          required: true
-          type: string  
 #         template:
 #           description: 'template'
 #           default: ''
