@@ -3,27 +3,49 @@ name: k6 test
 on:
   workflow_dispatch:
     inputs:
-        username:
-          description: 'username'
-          default: ''
-          required: false
-          type: string
-        email: 
-          description: 'email'
-          default: ''
-          required: false
-          type: string
-        boolean:
-          type: boolean
-          description: True or False
-        choice:
-          type: choice
-          description: Make a choice
+        api:
+          type: api
+          description: make choice api
           options:
-          - foo
-          - bar
-          - baz
-
+          - auth
+          - connect
+          - external
+        method:
+          description: 'method'
+          default: ''
+          required: true
+          type: string
+        vus: 
+          description: 'vus'
+          default: ''
+          required: false
+          type: string
+        duration: 
+          description: 'duration'
+          default: ''
+          required: false
+          type: string
+        rps: 
+          description: 'rps'
+          default: ''
+          required: false
+          type: string
+        parallelism: 
+          description: 'parallelism'
+          default: ''
+          required: false
+          type: string
+        js: 
+          description: 'js file'
+          default: ''
+          required: false
+          type: string  
+        template:
+          description: 'template'
+          default: ''
+          required: true
+          type: string
+          
 jobs:
   k6:
     name: k6
