@@ -66,9 +66,9 @@ jobs:
     - name: select js file
       run: |
         case "${{ github.event.inputs.api }}" in
-          "GET auth/token") echo "auth" ;;
-          "POST connect") echo "connect" ;;
-          "POST external") echo "external" ;;
+          "GET auth/token") echo "INPUT_FILE=auth.js" >> $GITHUB_ENV ;;
+          "POST connect") echo "INPUT_FILE=connect.js" >> $GITHUB_ENV ;;
+          "POST external") echo "INPUT_FILE=external.js" >> $GITHUB_ENV ;;
         esac
         
     - name: Create CRD
