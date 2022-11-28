@@ -8,8 +8,8 @@ on:
           description: make choice endpoint
           options:
           - GET auth/token
-          - POST connect/
-          - POST external/
+          - POST connect
+          - POST external
 #         method:
 #           description: 'method'
 #           default: ''
@@ -62,7 +62,15 @@ jobs:
         data=$(cat $HOME/.kube/config | openssl enc -e -base64)
         
         echo "kubeconfig_data=${data}" >> $GITHUB_ENV
-
+        
+    - name: select js file
+      run: |
+        case ${{ github.event.inputs.api }} in
+          "GET auth/token") echo "auth" ;;
+          "POST connect") echo "connect" ;;
+          "POST external") echo "external" ;;
+        esac
+        
     - name: Create CRD
       uses: ymktmk/operate-k6-crd@main
       with:
