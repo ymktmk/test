@@ -5,11 +5,11 @@ on:
     inputs:
         api:
           type: choice
-          description: make choice api
+          description: make choice endpoint
           options:
-          - auth.js
-          - connect.js
-          - external.js
+          - GET auth/token
+          - POST connect/
+          - POST external/
 #         method:
 #           description: 'method'
 #           default: ''
