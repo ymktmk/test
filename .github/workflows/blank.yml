@@ -65,7 +65,7 @@ jobs:
         
     - name: select js file
       run: |
-        case ${{ github.event.inputs.api }} in
+        case "${{ github.event.inputs.api }}" in
           "GET auth/token") echo "auth" ;;
           "POST connect") echo "connect" ;;
           "POST external") echo "external" ;;
