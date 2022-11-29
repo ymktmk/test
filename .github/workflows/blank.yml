@@ -35,11 +35,6 @@ on:
           default: ''
           required: false
           type: string
-        file: 
-          description: 'js file'
-          default: ''
-          required: false
-          type: string
           
 #         template:
 #           description: 'template'
