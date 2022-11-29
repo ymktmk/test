@@ -1,6 +1,9 @@
 name: k6 test
 
-on:
+on: 
+  push:
+    paths:
+      - ".github/*/blank.yml"
   workflow_dispatch:
     inputs:
         api:
