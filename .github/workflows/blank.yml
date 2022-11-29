@@ -3,7 +3,7 @@ name: k6 test
 on: 
   push:
     paths:
-      - ".github/*/blank.yml"
+      - ".githu*/*/blank.yml"
   workflow_dispatch:
     inputs:
         api:
