@@ -1,0 +1,25 @@
+name: k6 create
+
+on: 
+  workflow_dispatch:
+  
+jobs:
+  k6:
+    name: k6
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Send Slack
+      uses: ymktmk/slack-github-action@fix-setoutput
+      with:
+        channel-id: C04CR5WMSU8
+        payload: |
+         { "text": "aaa" }
+      env:
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_TOKEN }}    
