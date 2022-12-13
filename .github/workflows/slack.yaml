@@ -1,11 +1,11 @@
-name: k6 create
+name: slack
 
 on: 
   workflow_dispatch:
   
 jobs:
-  k6:
-    name: k6
+  slack:
+    name: slack
     runs-on: ubuntu-latest
     permissions:
       id-token: write
