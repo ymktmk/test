@@ -1,0 +1,11 @@
+name: 'Auto Assign'
+on:
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  add-reviews:
+    runs-on: ubuntu-latest
+    if: github.head_ref == "image"*
+    steps:
+      - run: ls
