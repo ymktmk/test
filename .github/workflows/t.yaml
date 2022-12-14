@@ -6,6 +6,6 @@ on:
 jobs:
   add-reviews:
     runs-on: ubuntu-latest 
-    if: ${{ contains(github.head_ref, 'image') }}
+    if: ${{ contains(github.head_ref, 'z') }}
     steps:
       - run: ls
