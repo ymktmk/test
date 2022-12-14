@@ -5,7 +5,7 @@ on:
 
 jobs:
   add-reviews:
-    runs-on: ubuntu-latest
-    if: contains(github.head_ref, "image")
+    runs-on: ubuntu-latest 
+    if: ${{ contains(github.head_ref, 'image') }}
     steps:
       - run: ls
