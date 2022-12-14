@@ -6,6 +6,6 @@ on:
 jobs:
   add-reviews:
     runs-on: ubuntu-latest
-    if: github.head_ref == *"image"*
+    if: contains(github.head_ref, "image")
     steps:
       - run: ls
